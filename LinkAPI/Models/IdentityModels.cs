@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
+using System.Data.Entity;
 
 namespace LinkAPI.Models
 {
@@ -29,7 +30,6 @@ namespace LinkAPI.Models
         {
             return new ApplicationDbContext();
         }
-
-        public System.Data.Entity.DbSet<LinkAPI.Models.Link> Links { get; set; }
+        public DbSet<Link> Links { get; set; }
     }
 }

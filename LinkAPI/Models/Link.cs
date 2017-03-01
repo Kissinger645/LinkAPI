@@ -23,8 +23,5 @@ namespace LinkAPI.Models
         protected virtual ApplicationUser Owner { get; set; }
     }
 
-    public class ApplicationContext
-    {
-        public DbSet<Link> Links { get; set; }
-    }
+    
 }

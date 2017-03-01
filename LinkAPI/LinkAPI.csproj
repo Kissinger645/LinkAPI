@@ -252,6 +252,10 @@
     <Compile Include="Migrations\201703010207241_errorfix.Designer.cs">
       <DependentUpon>201703010207241_errorfix.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703011600144_userupdate.cs" />
+    <Compile Include="Migrations\201703011600144_userupdate.Designer.cs">
+      <DependentUpon>201703011600144_userupdate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -342,6 +346,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703010207241_errorfix.resx">
       <DependentUpon>201703010207241_errorfix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703011600144_userupdate.resx">
+      <DependentUpon>201703011600144_userupdate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

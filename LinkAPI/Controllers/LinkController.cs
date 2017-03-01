@@ -24,7 +24,12 @@ namespace LinkAPI.Controllers
         // GET: api/Link
         public IQueryable<Link> GetLinks()
         {
-            return db.Links.Where(l => l.Public == true);
+            var thisUser = User.Identity.GetUserId();
+            if (thisUser == null)
+            {
+                return db.Links.Where(l => l.Public == true);
+            }
+            return db.Links.Where(l => l.Public == true || l.UserName == thisUser );
         }
 
         // GET: api/Link/5
@@ -41,6 +46,7 @@ namespace LinkAPI.Controllers
         }
 
         // PUT: api/Link/5
+        [Authorize]
         [ResponseType(typeof(void))]
         public IHttpActionResult PutLink(int id, Link link)
         {
@@ -86,14 +92,10 @@ namespace LinkAPI.Controllers
             var thisUser = User.Identity.GetUserId();
             if (thisUser == null)
             {
-                link.UserName = null;
                 link.Public = true;
             }
-            else
-            {
-                link.UserName = User.Identity.GetUserId();
-            }
 
+            link.UserName = thisUser;
             link.ShortUrl = Encrypt256(link.Url);
             link.Created = DateTime.Now;
             db.Links.Add(link);

@@ -29,5 +29,7 @@ namespace LinkAPI.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<LinkAPI.Models.Link> Links { get; set; }
     }
 }
